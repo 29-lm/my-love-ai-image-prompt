@@ -22,7 +22,7 @@ export function usePromptDetail(slug: string | undefined) {
     }
 
     setLoading(true)
-    fetch('/data/prompts.json')
+    fetch(`${import.meta.env.BASE_URL}data/prompts.json`)
       .then((res) => res.json())
       .then((allPrompts: PromptItem[]) => {
         // Cache all prompts for future lookups

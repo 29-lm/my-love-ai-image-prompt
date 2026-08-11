@@ -14,7 +14,7 @@ export function useIndexData() {
       return
     }
 
-    fetch('/data/index.json')
+    fetch(`${import.meta.env.BASE_URL}data/index.json`)
       .then((res) => res.json())
       .then((json) => {
         cachedIndex = json

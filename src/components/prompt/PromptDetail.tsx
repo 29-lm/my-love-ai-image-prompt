@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, Copy, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
+import { assetUrl } from '@/lib/utils'
 import type { PromptItem } from '@/data/types'
 
 interface PromptDetailProps {
@@ -58,7 +59,7 @@ export function PromptDetail({ item }: PromptDetailProps) {
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentImageIndex}
-                src={images[currentImageIndex]}
+                src={assetUrl(images[currentImageIndex])}
                 alt={`${item.title} - ${currentImageIndex + 1}`}
                 className="h-full w-full object-contain"
                 initial={{ opacity: 0, x: 20 }}
@@ -196,7 +197,7 @@ export function PromptDetail({ item }: PromptDetailProps) {
                 }`}
               >
                 <img
-                  src={img}
+                  src={assetUrl(img)}
                   alt={`Thumbnail ${idx + 1}`}
                   className="h-full w-full object-cover"
                   loading="lazy"
