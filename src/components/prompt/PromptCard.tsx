@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { assetUrl } from '@/lib/utils'
 import type { PromptIndexItem } from '@/data/types'
 
 interface PromptCardProps {
@@ -22,7 +23,7 @@ export const PromptCard = memo(function PromptCard({ item }: PromptCardProps) {
         <div className="relative aspect-[3/4] overflow-hidden">
           {coverImage ? (
             <img
-              src={coverImage}
+              src={assetUrl(coverImage)}
               alt={item.title}
               loading="lazy"
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
